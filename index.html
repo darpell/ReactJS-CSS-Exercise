@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>ReactJS-CSS Exercise</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+
+  <style>
+
+  /*
+    * {
+      box-sizing: border-box;
+    }
+
+    div {
+      border: 1px solid black;
+      margin: 2px;
+      font-family: sans-serif;
+    }
+    */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      font-family: sans-serif;
+    }
+
+    body {
+      height: inherit;
+    }
+
+    div#root {
+      height: 80%;
+    }
+
+    p {
+      font-size: 12px;
+    }
+
+    .container {
+      display: grid;
+      padding: 35px;
+      grid-template-columns: 60% 35%;
+      grid-gap: 20px;
+      background-color: #5283bf;
+      height: inherit;
+      width: 600px;
+      margin: auto;
+      margin-top: 10%;
+      border: 1px solid black;
+    }
+
+    .container > div {
+      background-color: white;
+      border: 1px solid black;
+      padding: 5px;
+    }
+
+    .bigger-item {
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
+    .right {
+      text-align: center;
+      vertical-align: top;
+    }
+
+    .left {
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .e {
+      order: 2;
+    }
+
+    .item {
+    }
+
+
+  </style>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      class Container extends React.Component {
+        render() {
+          return (
+              <div className={"container"}>
+                  <Div className="bigger-item right item" title={headers[0]} text={text} />
+                  <Div className="right item e" title={headers[1]} />
+                  <Div className="left item" title={headers[2]} />
+                  <Div className="left item" title={headers[3]} />
+                  <Div className="left item e" title={headers[4]} />
+              </div>
+          );
+        }
+      }
+
+      function Div(props) {
+        return (
+          <div className={props.className}>
+            <b>{props.title}</b>
+            <p>{props.text}</p>
+          </div>
+        );
+      }
+
+      const headers = [
+        'Title 1',
+        'Title 2',
+        'Title 3',
+        'Title 4',
+        'Title 5',
+      ];
+
+      const text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend tempus posuere. Prion mattis purus non luctus auctor. Nulla lobortis blandit efficitur. Sed uliamcorper sem feugiat, vestiulum odio nec, condimentum turpis';
+
+      ReactDOM.render(
+        <Container title={headers}/>,
+        document.getElementById('root')
+      );
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      To set up a production-ready React build environment, follow these instructions:
+      * https://reactjs.org/docs/add-react-to-a-new-app.html
+      * https://reactjs.org/docs/add-react-to-an-existing-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      * https://reactjs.org/docs/react-without-jsx.html
+      * https://reactjs.org/docs/cdn-links.html
+    -->
+  </body>
+</html>
